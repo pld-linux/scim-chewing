@@ -1,7 +1,7 @@
 Summary:	Chewing Chinese input method for SCIM
 Name:		scim-chewing
 Version:	0.3.4
-Release:	0.1
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://chewing.csie.net/download/scim/%{name}-%{version}.tar.bz2
