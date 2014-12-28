@@ -9,7 +9,7 @@ Source0:	http://chewing.csie.net/download/scim/%{name}-%{version}.tar.bz2
 # Source0-md5:	c37bd1e7198776117e68b7aa1060896d
 Patch0:		%{name}-gtk3.patch
 URL:		http://chewing.csie.net/
-BuildRequires:	gettext-devel >= 0.14.1
+BuildRequires:	gettext-tools >= 0.14.1
 BuildRequires:	intltool >= 0.34.0
 BuildRequires:	libchewing-devel >= 0.3.3
 BuildRequires:	libstdc++-devel
