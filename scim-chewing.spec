@@ -1,20 +1,25 @@
 Summary:	Chewing Chinese input method for SCIM
 Summary(pl.UTF-8):	Metoda wprowadzania znaków chińskich Chewing dla SCIM-a
 Name:		scim-chewing
-Version:	0.3.4
+Version:	0.3.5
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://chewing.csie.net/download/scim/%{name}-%{version}.tar.bz2
-# Source0-md5:	c37bd1e7198776117e68b7aa1060896d
-Patch0:		%{name}-gtk3.patch
-URL:		http://chewing.csie.net/
+#Source0Download: https://github.com/chewing/scim-chewing/releases
+Source0:	https://github.com/chewing/scim-chewing/releases/download/v%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	3847ff3ffea4e4ba83ddf81035167a1d
+Patch0:		%{name}-libchewing.patch
+URL:		http://chewing.im/projects/scim-chewing
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake
 BuildRequires:	gettext-tools >= 0.14.1
 BuildRequires:	intltool >= 0.34.0
-BuildRequires:	libchewing-devel >= 0.3.3
+BuildRequires:	libtool >= 2:1.5
+BuildRequires:	libchewing-devel >= 0.3.4
 BuildRequires:	libstdc++-devel
+BuildRequires:	pkgconfig
 BuildRequires:	scim-devel >= 1.0.0
-Requires:	libchewing >= 0.3.3
+Requires:	libchewing >= 0.3.4
 Requires:	scim >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,6 +34,12 @@ Metoda wprowadzania znaków chińskich Chewing dla SCIM-a.
 %patch0 -p1
 
 %build
+%{__intltoolize}
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--disable-static
 %{__make}
